@@ -10,99 +10,94 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { background-color: #333; display: flex; flex-direction: column; align-items: center; gap: 60px; font-family: 'Montserrat', sans-serif; padding: 40px 20px; }
+        
+        /* CONTAINER PRINCIPAL */
         .ig-post { width: 1080px; max-width: 100%; background-color: #fdeef1; background-image: radial-gradient(#f8bbd0 1px, transparent 1px); background-size: 30px 30px; position: relative; padding: 60px 50px; border-radius: 20px; overflow: hidden; color: #3e2723; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        
+        /* CABEÇALHO */
         .header { text-align: center; margin-bottom: 40px; position: relative; z-index: 1; }
         .header h1 { font-family: 'Playfair Display', serif; font-size: 65px; color: #2e1a13; text-transform: uppercase; margin-bottom: 10px; }
         .header h2 { font-size: 32px; font-weight: 500; color: #4a332a; }
+        
+        /* SECÇÕES */
         .section-box { background-color: rgba(255, 255, 255, 0.6); border: 2px solid #f8bbd0; border-radius: 25px; padding: 40px; margin-bottom: 40px; position: relative; z-index: 1; }
         .section-title { text-align: center; font-size: 28px; font-weight: 700; margin-bottom: 30px; text-transform: uppercase; color: #2e1a13; }
-        .eggs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        
+        /* GRELHA DE PRODUTOS */
+        .eggs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
         .egg-card { background: #fff; border-radius: 20px; padding: 20px; text-align: center; border: 1px solid #fce4ec; display: flex; flex-direction: column; }
         .egg-image { width: 100%; height: 350px; border-radius: 15px; overflow: hidden; margin-bottom: 20px; background-color: #fce4ec; }
         .egg-image img { width: 100%; height: 100%; object-fit: cover; }
         .egg-card h3 { font-family: 'Playfair Display', serif; font-size: 26px; margin-bottom: 10px; color: #3e2723; }
-        .egg-card p { font-size: 18px; color: #5d4037; line-height: 1.4; flex-grow: 1; margin-bottom: 20px; padding: 0 10px; }
-        .prices-container { display: flex; justify-content: space-between; gap: 15px; }
-        .price-box { flex: 1; border: 1.5px solid #d7ccc8; border-radius: 10px; padding: 12px 5px; font-size: 20px; font-weight: 600; color: #3e2723; background-color: #fafafa; }
-        .gifts-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 25px; }
-        .gift-card { background: #fff; border-radius: 20px; padding: 15px; text-align: center; border: 1px solid #fce4ec; display: flex; flex-direction: column; }
+        .egg-card p { font-size: 16px; color: #5d4037; line-height: 1.4; flex-grow: 1; margin-bottom: 20px; padding: 0 5px; }
+        
+        /* CAIXAS DE PREÇO ALINHADAS (CORREÇÃO) */
+        .prices-container { display: flex; justify-content: space-between; gap: 12px; }
+        .price-box { 
+            flex: 1; 
+            border: 1.5px solid #d7ccc8; 
+            border-radius: 10px; 
+            padding: 10px 5px; 
+            font-size: 18px; 
+            font-weight: 700; 
+            color: #3e2723; 
+            background-color: #fafafa; 
+            display: flex;
+            flex-direction: column; /* Coloca o peso por cima do preço */
+            align-items: center;
+            justify-content: center;
+            line-height: 1.3;
+        }
+        .price-box small {
+            font-size: 13px;
+            color: #8d6e63;
+            font-weight: 600;
+        }
+
+        /* GRELHA DE PRESENTES */
+        .gifts-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+        .gift-card { background: #fff; border-radius: 20px; padding: 15px; text-align: center; border: 1px solid #fce4ec; display: flex; flex-direction: column; align-items: center; }
         .gift-image { width: 100%; height: 220px; border-radius: 12px; overflow: hidden; margin-bottom: 15px; background-color: #fce4ec; }
         .gift-image img { width: 100%; height: 100%; object-fit: cover; }
         .gift-card h3 { font-family: 'Playfair Display', serif; font-size: 22px; margin-bottom: 8px; color: #3e2723; }
-        .gift-card p { font-size: 16px; color: #5d4037; line-height: 1.3; flex-grow: 1; margin-bottom: 15px; }
-        .gift-price { border: 1.5px solid #d7ccc8; border-radius: 10px; padding: 10px; font-size: 20px; font-weight: 600; background-color: #fafafa; }
-        .footer { text-align: center; font-size: 24px; font-weight: 600; padding: 20px; background-color: rgba(255, 255, 255, 0.8); border-radius: 15px; }
+        .gift-card p { font-size: 15px; color: #5d4037; line-height: 1.3; flex-grow: 1; margin-bottom: 15px; }
+        .gift-price { border: 1.5px solid #d7ccc8; border-radius: 10px; padding: 10px 20px; font-size: 20px; font-weight: 700; background-color: #fafafa; width: 100%; color: #3e2723; }
+        
+        /* QUADRO DE AVISOS */
+        .reminder-box { background-color: #fff9fa; border: 2px dashed #f48fb1; border-radius: 20px; padding: 30px; margin-bottom: 30px; color: #5d4037; font-size: 18px; line-height: 1.6; box-shadow: 0 5px 15px rgba(0,0,0,0.03); position: relative; z-index: 1; }
+        .reminder-box h3 { color: #ad1457; font-size: 26px; margin-bottom: 20px; text-align: center; text-transform: uppercase; font-family: 'Playfair Display', serif; }
+        .reminder-box ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 15px; }
+        .reminder-box li { display: flex; align-items: center; gap: 12px; background: #fff; padding: 15px; border-radius: 12px; border: 1px solid #fce4ec; }
+        .reminder-box a { color: #ad1457; text-decoration: none; font-weight: bold; transition: color 0.3s; }
+        .reminder-box a:hover { color: #880e4f; text-decoration: underline; }
+        .pix-key { font-weight: bold; background: #fce4ec; padding: 4px 10px; border-radius: 8px; color: #ad1457; letter-spacing: 0.5px; }
+        .icon-emoji { font-size: 24px; }
+
+        .footer { text-align: center; font-size: 22px; font-weight: 600; padding: 20px; background-color: rgba(255, 255, 255, 0.8); border-radius: 15px; }
+        
+        /* CAPA */
         .ig-post.cover { height: 1350px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
         .cover h2 { font-size: 38px; color: #ad1457; font-weight: 600; letter-spacing: 5px; margin-bottom: 15px; z-index: 1;}
         .cover h1 { font-family: 'Playfair Display', serif; font-size: 130px; color: #2e1a13; line-height: 0.9; margin-bottom: 40px; z-index: 2;}
-        .cover-image-container { width: 85%; height: 550px; border-radius: 30px; overflow: hidden; border: 5px solid #fff; z-index: 2;}
+        .cover-image-container { width: 85%; height: 550px; border-radius: 30px; overflow: hidden; border: 5px solid #fff; z-index: 2; box-shadow: 0 15px 30px rgba(0,0,0,0.1);}
         .cover-image-container img { width: 100%; height: 100%; object-fit: cover; }
         .cover .subtitle { font-size: 28px; color: #5d4037; margin-top: 40px; max-width: 80%; line-height: 1.5; z-index: 1;}
         .cover .year-badge { margin-top: 40px; background-color: #2e1a13; color: #fff; padding: 10px 40px; border-radius: 50px; font-size: 35px; z-index: 1;}
         
-        /* ESTILOS DO NOVO QUADRO DE AVISOS */
-        .reminder-box {
-            background-color: #fff9fa;
-            border: 2px dashed #f48fb1;
-            border-radius: 20px;
-            padding: 30px;
-            margin-bottom: 30px;
-            color: #5d4037;
-            font-size: 18px;
-            line-height: 1.6;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
-            position: relative;
-            z-index: 1;
+        /* OTIMIZAÇÃO PARA ECRÃS DE TELEMÓVEL E TABLET */
+        @media (max-width: 1100px) { 
+            body { padding: 0; } 
+            .ig-post { border-radius: 0; width: 100vw; } 
         }
-        .reminder-box h3 {
-            color: #ad1457;
-            font-size: 26px;
-            margin-bottom: 20px;
-            text-align: center;
-            text-transform: uppercase;
-            font-family: 'Playfair Display', serif;
+        @media (max-width: 768px) { 
+            /* Reduzido o espaço exterior no telemóvel para os cartões caberem melhor */
+            .ig-post { padding: 30px 15px; }
+            .section-box { padding: 20px 15px; }
+            .eggs-grid, .gifts-grid { grid-template-columns: 1fr; gap: 20px; } 
+            .header h1 { font-size: 45px; } 
+            .cover h1 { font-size: 80px; } 
+            .reminder-box li { flex-direction: column; text-align: center; } 
         }
-        .reminder-box ul {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        .reminder-box li {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            background: #fff;
-            padding: 15px;
-            border-radius: 12px;
-            border: 1px solid #fce4ec;
-        }
-        .reminder-box a {
-            color: #ad1457;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-        .reminder-box a:hover {
-            color: #880e4f;
-            text-decoration: underline;
-        }
-        .pix-key {
-            font-weight: bold;
-            background: #fce4ec;
-            padding: 4px 10px;
-            border-radius: 8px;
-            color: #ad1457;
-            letter-spacing: 0.5px;
-        }
-        .icon-emoji {
-            font-size: 24px;
-        }
-
-        /* Ajuste para ecrãs mais pequenos e para salvar em PDF no tablet */
-        @media (max-width: 1100px) { body { padding: 0; } .ig-post { border-radius: 0; width: 100vw; } }
-        @media (max-width: 768px) { .eggs-grid, .gifts-grid { grid-template-columns: 1fr; } .header h1 { font-size: 45px; } .cover h1 { font-size: 80px; } .reminder-box li { flex-direction: column; text-align: center; } }
     </style>
 </head>
 <body>
@@ -111,7 +106,7 @@
     <div class="ig-post cover">
         <div class="cover-header"><h2>Confeitaria Artesanal</h2><h1>Menu de<br>Páscoa</h1></div>
         <div class="cover-image-container">
-            <img src="todos os ovos.jpg" alt="Capa Páscoa">
+            <img src="todos os ovos.jfif" alt="Capa Páscoa">
         </div>
         <p class="subtitle">Descubra a nossa seleção exclusiva de ovos de colher e presentes feitos com muito amor e o mais puro chocolate.</p>
         <div class="year-badge">2026</div>
@@ -121,6 +116,7 @@
     <div class="ig-post">
         <div class="header"><h1>Menu de Páscoa 2026</h1><h2>Confeitaria Artesanal</h2></div>
 
+        <!-- Ovos de Colher -->
         <div class="section-box">
             <div class="section-title">Ovos de Colher (150g e 250g)</div>
             <div class="eggs-grid">
@@ -129,53 +125,66 @@
                     <div class="egg-image"><img src="ovo de pascoa editado.jpg" alt="Ninho com Nutella"></div>
                     <h3>Ninho com Nutella 🌰</h3>
                     <p>Mousse de ninho, brigadeiro de ninho e Nutella original.</p>
-                    <div class="prices-container"><div class="price-box">150g: R$ 44,99</div><div class="price-box">250g: R$ 74,99</div></div>
+                    <div class="prices-container">
+                        <div class="price-box"><small>150g</small>R$ 44,99</div>
+                        <div class="price-box"><small>250g</small>R$ 74,99</div>
+                    </div>
                 </div>
 
                 <div class="egg-card">
-                    <div class="egg-image"><img src="maracuja.jpg" alt="Maracujá com Chocolate"></div>
+                    <div class="egg-image"><img src="Ovo editado maracuja.jfif" alt="Maracujá com Chocolate"></div>
                     <h3>Maracujá com Chocolate 🍫</h3>
                     <p>Brigadeiro de maracujá, ganache de chocolate e mousse.</p>
-                    <div class="prices-container"><div class="price-box">150g: R$ 41,99</div><div class="price-box">250g: R$ 71,99</div></div>
+                    <div class="prices-container">
+                        <div class="price-box"><small>150g</small>R$ 41,99</div>
+                        <div class="price-box"><small>250g</small>R$ 71,99</div>
+                    </div>
                 </div>
 
                 <div class="egg-card">
                     <div class="egg-image"><img src="doce de leite.jpg" alt="Doce de Leite com Nozes"></div>
                     <h3>Doce de Leite c/ Nozes 🥧</h3>
                     <p>Doce de leite cozido, nozes e mousse de doce de leite.</p>
-                    <div class="prices-container"><div class="price-box">150g: R$ 42,99</div><div class="price-box">250g: R$ 72,99</div></div>
+                    <div class="prices-container">
+                        <div class="price-box"><small>150g</small>R$ 42,99</div>
+                        <div class="price-box"><small>250g</small>R$ 72,99</div>
+                    </div>
                 </div>
 
                 <div class="egg-card">
-                    <div class="egg-image"><img src="ovo de morango editado.jpg" alt="Ninho com Morango"></div>
+                    <div class="egg-image"><img src="ovo de morango editado.jfif" alt="Ninho com Morango"></div>
                     <h3>Ninho com Morango 🍓</h3>
                     <p>Brigadeiro de ninho, geleia artesanal e mousse de ninho.</p>
-                    <div class="prices-container"><div class="price-box">150g: R$ 44,99</div><div class="price-box">250g: R$ 74,99</div></div>
+                    <div class="prices-container">
+                        <div class="price-box"><small>150g</small>R$ 44,99</div>
+                        <div class="price-box"><small>250g</small>R$ 74,99</div>
+                    </div>
                 </div>
 
             </div>
         </div>
 
+        <!-- Presentes -->
         <div class="section-box">
             <div class="section-title">Linha Presentes & Lembrancinhas</div>
             <div class="gifts-grid">
                 
                 <div class="gift-card">
-                    <div class="gift-image"><img src="caixa com mini trufas editada.jpg" alt="Caixa de Trufas"></div>
+                    <div class="gift-image"><img src="caixa com mini trufas editada.jfif" alt="Caixa de Trufas"></div>
                     <h3>Caixa de Trufas (4 un.)</h3>
                     <p>Base de brownie, chocolate e cobertura meio amargo.</p>
                     <div class="gift-price">R$ 15,99</div>
                 </div>
 
                 <div class="gift-card">
-                    <div class="gift-image"><img src="mini ovo editado lembranca.jpg" alt="Mini Ovinho"></div>
+                    <div class="gift-image"><img src="mini ovo editado lembranca.jfif" alt="Mini Ovinho"></div>
                     <h3>Mini Ovinho Brownie (50g)</h3>
                     <p>Composto por brownie e cobertura meio amargo.</p>
                     <div class="gift-price">R$ 5,99</div>
                 </div>
 
                 <div class="gift-card">
-                    <div class="gift-image"><img src="Barra editada.jpg" alt="Barra Recheada"></div>
+                    <div class="gift-image"><img src="Barra editada.jfif" alt="Barra Recheada"></div>
                     <h3>Barra Recheada (100g)</h3>
                     <p>Chocolate meio amargo, brownie e brigadeiro.</p>
                     <div class="gift-price">R$ 21,99</div>
