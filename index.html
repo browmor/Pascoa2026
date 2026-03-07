@@ -40,9 +40,69 @@
         .cover .subtitle { font-size: 28px; color: #5d4037; margin-top: 40px; max-width: 80%; line-height: 1.5; z-index: 1;}
         .cover .year-badge { margin-top: 40px; background-color: #2e1a13; color: #fff; padding: 10px 40px; border-radius: 50px; font-size: 35px; z-index: 1;}
         
+        /* ESTILOS DO NOVO QUADRO DE AVISOS */
+        .reminder-box {
+            background-color: #fff9fa;
+            border: 2px dashed #f48fb1;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            color: #5d4037;
+            font-size: 18px;
+            line-height: 1.6;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            position: relative;
+            z-index: 1;
+        }
+        .reminder-box h3 {
+            color: #ad1457;
+            font-size: 26px;
+            margin-bottom: 20px;
+            text-align: center;
+            text-transform: uppercase;
+            font-family: 'Playfair Display', serif;
+        }
+        .reminder-box ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .reminder-box li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: #fff;
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid #fce4ec;
+        }
+        .reminder-box a {
+            color: #ad1457;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        .reminder-box a:hover {
+            color: #880e4f;
+            text-decoration: underline;
+        }
+        .pix-key {
+            font-weight: bold;
+            background: #fce4ec;
+            padding: 4px 10px;
+            border-radius: 8px;
+            color: #ad1457;
+            letter-spacing: 0.5px;
+        }
+        .icon-emoji {
+            font-size: 24px;
+        }
+
         /* Ajuste para ecrãs mais pequenos e para salvar em PDF no tablet */
         @media (max-width: 1100px) { body { padding: 0; } .ig-post { border-radius: 0; width: 100vw; } }
-        @media (max-width: 768px) { .eggs-grid, .gifts-grid { grid-template-columns: 1fr; } .header h1 { font-size: 45px; } .cover h1 { font-size: 80px; } }
+        @media (max-width: 768px) { .eggs-grid, .gifts-grid { grid-template-columns: 1fr; } .header h1 { font-size: 45px; } .cover h1 { font-size: 80px; } .reminder-box li { flex-direction: column; text-align: center; } }
     </style>
 </head>
 <body>
@@ -68,29 +128,29 @@
                 <div class="egg-card">
                     <div class="egg-image"><img src="ovo de pascoa editado.jpg" alt="Ninho com Nutella"></div>
                     <h3>Ninho com Nutella 🌰</h3>
-                    <p>Mousse de ninho, brigadeiro de ninho e nutella original.</p>
-                    <div class="prices-container"><div class="price-box">150g: [ R$ &nbsp;&nbsp;&nbsp; ]</div><div class="price-box">250g: [ R$ &nbsp;&nbsp;&nbsp; ]</div></div>
+                    <p>Mousse de ninho, brigadeiro de ninho e Nutella original.</p>
+                    <div class="prices-container"><div class="price-box">150g: R$ 44,99</div><div class="price-box">250g: R$ 74,99</div></div>
                 </div>
 
                 <div class="egg-card">
                     <div class="egg-image"><img src="maracuja.jpg" alt="Maracujá com Chocolate"></div>
                     <h3>Maracujá com Chocolate 🍫</h3>
                     <p>Brigadeiro de maracujá, ganache de chocolate e mousse.</p>
-                    <div class="prices-container"><div class="price-box">150g: [ R$ &nbsp;&nbsp;&nbsp; ]</div><div class="price-box">250g: [ R$ &nbsp;&nbsp;&nbsp; ]</div></div>
+                    <div class="prices-container"><div class="price-box">150g: R$ 41,99</div><div class="price-box">250g: R$ 71,99</div></div>
                 </div>
 
                 <div class="egg-card">
                     <div class="egg-image"><img src="doce de leite.jpg" alt="Doce de Leite com Nozes"></div>
                     <h3>Doce de Leite c/ Nozes 🥧</h3>
                     <p>Doce de leite cozido, nozes e mousse de doce de leite.</p>
-                    <div class="prices-container"><div class="price-box">150g: [ R$ &nbsp;&nbsp;&nbsp; ]</div><div class="price-box">250g: [ R$ &nbsp;&nbsp;&nbsp; ]</div></div>
+                    <div class="prices-container"><div class="price-box">150g: R$ 42,99</div><div class="price-box">250g: R$ 72,99</div></div>
                 </div>
 
                 <div class="egg-card">
                     <div class="egg-image"><img src="ovo de morango editado.jpg" alt="Ninho com Morango"></div>
                     <h3>Ninho com Morango 🍓</h3>
                     <p>Brigadeiro de ninho, geleia artesanal e mousse de ninho.</p>
-                    <div class="prices-container"><div class="price-box">150g: [ R$ &nbsp;&nbsp;&nbsp; ]</div><div class="price-box">250g: [ R$ &nbsp;&nbsp;&nbsp; ]</div></div>
+                    <div class="prices-container"><div class="price-box">150g: R$ 44,99</div><div class="price-box">250g: R$ 74,99</div></div>
                 </div>
 
             </div>
@@ -104,24 +164,36 @@
                     <div class="gift-image"><img src="caixa com mini trufas editada.jpg" alt="Caixa de Trufas"></div>
                     <h3>Caixa de Trufas (4 un.)</h3>
                     <p>Base de brownie, chocolate e cobertura meio amargo.</p>
-                    <div class="gift-price">[ R$ &nbsp;&nbsp;&nbsp; ]</div>
+                    <div class="gift-price">R$ 15,99</div>
                 </div>
 
                 <div class="gift-card">
                     <div class="gift-image"><img src="mini ovo editado lembranca.jpg" alt="Mini Ovinho"></div>
                     <h3>Mini Ovinho Brownie (50g)</h3>
                     <p>Composto por brownie e cobertura meio amargo.</p>
-                    <div class="gift-price">[ R$ &nbsp;&nbsp;&nbsp; ]</div>
+                    <div class="gift-price">R$ 5,99</div>
                 </div>
 
                 <div class="gift-card">
                     <div class="gift-image"><img src="Barra editada.jpg" alt="Barra Recheada"></div>
                     <h3>Barra Recheada (100g)</h3>
                     <p>Chocolate meio amargo, brownie e brigadeiro.</p>
-                    <div class="gift-price">[ R$ &nbsp;&nbsp;&nbsp; ]</div>
+                    <div class="gift-price">R$ 21,99</div>
                 </div>
 
             </div>
+        </div>
+
+        <!-- QUADRO DE AVISOS E INFORMAÇÕES -->
+        <div class="reminder-box">
+            <h3>⚠️ Informações Importantes</h3>
+            <ul>
+                <li><span class="icon-emoji">📅</span> <strong>Prazo:</strong> Encomendas válidas até o dia 01/04.</li>
+                <li><span class="icon-emoji">💳</span> <strong>Pagamento:</strong> Sinal de 50% no ato da encomenda. Em caso de desistência, não haverá reembolso.</li>
+                <li><span class="icon-emoji">❖</span> <strong>Chave Pix:</strong> <span class="pix-key">browmor@gmail.com</span></li>
+                <li><span class="icon-emoji">📸</span> <strong>Instagram:</strong> <a href="https://instagram.com/browmor" target="_blank">@browmor</a></li>
+                <li><span class="icon-emoji">💬</span> <strong>WhatsApp:</strong> <a href="https://wa.me/5521972250916" target="_blank">(21) 97225-0916</a></li>
+            </ul>
         </div>
 
         <div class="footer">🛒 Garanta o seu! Pedidos pelo link da Bio. Estoque Limitado.</div>
