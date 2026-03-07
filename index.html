@@ -26,12 +26,15 @@
         /* GRELHA DE PRODUTOS */
         .eggs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
         .egg-card { background: #fff; border-radius: 20px; padding: 20px; text-align: center; border: 1px solid #fce4ec; display: flex; flex-direction: column; }
-        .egg-image { width: 100%; height: 350px; border-radius: 15px; overflow: hidden; margin-bottom: 20px; background-color: #fce4ec; }
-        .egg-image img { width: 100%; height: 100%; object-fit: cover; }
+        
+        /* ALTERAÇÃO AQUI: object-fit: contain para mostrar a foto toda e aumento da altura */
+        .egg-image { width: 100%; height: 420px; border-radius: 15px; overflow: hidden; margin-bottom: 20px; background-color: transparent; display: flex; align-items: center; justify-content: center; }
+        .egg-image img { width: 100%; height: 100%; object-fit: contain; }
+        
         .egg-card h3 { font-family: 'Playfair Display', serif; font-size: 26px; margin-bottom: 10px; color: #3e2723; }
         .egg-card p { font-size: 16px; color: #5d4037; line-height: 1.4; flex-grow: 1; margin-bottom: 20px; padding: 0 5px; }
         
-        /* CAIXAS DE PREÇO ALINHADAS (CORREÇÃO) */
+        /* CAIXAS DE PREÇO ALINHADAS */
         .prices-container { display: flex; justify-content: space-between; gap: 12px; }
         .price-box { 
             flex: 1; 
@@ -43,7 +46,7 @@
             color: #3e2723; 
             background-color: #fafafa; 
             display: flex;
-            flex-direction: column; /* Coloca o peso por cima do preço */
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             line-height: 1.3;
@@ -57,8 +60,11 @@
         /* GRELHA DE PRESENTES */
         .gifts-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
         .gift-card { background: #fff; border-radius: 20px; padding: 15px; text-align: center; border: 1px solid #fce4ec; display: flex; flex-direction: column; align-items: center; }
-        .gift-image { width: 100%; height: 220px; border-radius: 12px; overflow: hidden; margin-bottom: 15px; background-color: #fce4ec; }
-        .gift-image img { width: 100%; height: 100%; object-fit: cover; }
+        
+        /* ALTERAÇÃO AQUI também para os presentes não cortarem */
+        .gift-image { width: 100%; height: 280px; border-radius: 12px; overflow: hidden; margin-bottom: 15px; background-color: transparent; display: flex; align-items: center; justify-content: center; }
+        .gift-image img { width: 100%; height: 100%; object-fit: contain; }
+        
         .gift-card h3 { font-family: 'Playfair Display', serif; font-size: 22px; margin-bottom: 8px; color: #3e2723; }
         .gift-card p { font-size: 15px; color: #5d4037; line-height: 1.3; flex-grow: 1; margin-bottom: 15px; }
         .gift-price { border: 1.5px solid #d7ccc8; border-radius: 10px; padding: 10px 20px; font-size: 20px; font-weight: 700; background-color: #fafafa; width: 100%; color: #3e2723; }
@@ -79,8 +85,11 @@
         .ig-post.cover { height: 1350px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
         .cover h2 { font-size: 38px; color: #ad1457; font-weight: 600; letter-spacing: 5px; margin-bottom: 15px; z-index: 1;}
         .cover h1 { font-family: 'Playfair Display', serif; font-size: 130px; color: #2e1a13; line-height: 0.9; margin-bottom: 40px; z-index: 2;}
-        .cover-image-container { width: 85%; height: 550px; border-radius: 30px; overflow: hidden; border: 5px solid #fff; z-index: 2; box-shadow: 0 15px 30px rgba(0,0,0,0.1);}
-        .cover-image-container img { width: 100%; height: 100%; object-fit: cover; }
+        
+        /* ALTERAÇÃO AQUI para a capa não cortar */
+        .cover-image-container { width: 85%; height: 600px; border-radius: 30px; overflow: hidden; border: 5px solid #fff; z-index: 2; box-shadow: 0 15px 30px rgba(0,0,0,0.1); background-color: #fff;}
+        .cover-image-container img { width: 100%; height: 100%; object-fit: contain; }
+        
         .cover .subtitle { font-size: 28px; color: #5d4037; margin-top: 40px; max-width: 80%; line-height: 1.5; z-index: 1;}
         .cover .year-badge { margin-top: 40px; background-color: #2e1a13; color: #fff; padding: 10px 40px; border-radius: 50px; font-size: 35px; z-index: 1;}
         
@@ -90,13 +99,13 @@
             .ig-post { border-radius: 0; width: 100vw; } 
         }
         @media (max-width: 768px) { 
-            /* Reduzido o espaço exterior no telemóvel para os cartões caberem melhor */
             .ig-post { padding: 30px 15px; }
             .section-box { padding: 20px 15px; }
             .eggs-grid, .gifts-grid { grid-template-columns: 1fr; gap: 20px; } 
             .header h1 { font-size: 45px; } 
             .cover h1 { font-size: 80px; } 
             .reminder-box li { flex-direction: column; text-align: center; } 
+            .egg-image { height: auto; min-height: 350px; } /* Adapta ainda melhor ao telemóvel */
         }
     </style>
 </head>
@@ -106,7 +115,7 @@
     <div class="ig-post cover">
         <div class="cover-header"><h2>Confeitaria Artesanal</h2><h1>Menu de<br>Páscoa</h1></div>
         <div class="cover-image-container">
-            <img src="todos os ovos.jfif" alt="Capa Páscoa">
+            <img src="todos os ovos.jpg" alt="Capa Páscoa">
         </div>
         <p class="subtitle">Descubra a nossa seleção exclusiva de ovos de colher e presentes feitos com muito amor e o mais puro chocolate.</p>
         <div class="year-badge">2026</div>
@@ -170,21 +179,21 @@
             <div class="gifts-grid">
                 
                 <div class="gift-card">
-                    <div class="gift-image"><img src="caixa com mini trufas editada.jfif" alt="Caixa de Trufas"></div>
+                    <div class="gift-image"><img src="caixa com mini trufas editada.jpg" alt="Caixa de Trufas"></div>
                     <h3>Caixa de Trufas (4 un.)</h3>
                     <p>Base de brownie, chocolate e cobertura meio amargo.</p>
                     <div class="gift-price">R$ 15,99</div>
                 </div>
 
                 <div class="gift-card">
-                    <div class="gift-image"><img src="mini ovo editado lembranca.jfif" alt="Mini Ovinho"></div>
+                    <div class="gift-image"><img src="mini ovo editado lembranca.jpg" alt="Mini Ovinho"></div>
                     <h3>Mini Ovinho Brownie (50g)</h3>
                     <p>Composto por brownie e cobertura meio amargo.</p>
                     <div class="gift-price">R$ 5,99</div>
                 </div>
 
                 <div class="gift-card">
-                    <div class="gift-image"><img src="Barra editada.jfif" alt="Barra Recheada"></div>
+                    <div class="gift-image"><img src="Barra editada.jpg" alt="Barra Recheada"></div>
                     <h3>Barra Recheada (100g)</h3>
                     <p>Chocolate meio amargo, brownie e brigadeiro.</p>
                     <div class="gift-price">R$ 21,99</div>
